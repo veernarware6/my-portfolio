@@ -1,0 +1,814 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<title>Veer Narware | Personal Portfolio & Web Developer</title>
+
+<meta name="description" content="Welcome to Veer Narware's personal portfolio. Explore my web development skills, projects, hobbies and contact information.">
+
+<meta name="theme-color" content="#141e30">
+
+    <style>
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #141e30;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 5px solid #ffffff;
+    border-top: 5px solid #00a8cc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+#social {
+    text-align: center;
+    padding: 30px 15px;
+}
+
+#social a {
+    display: inline-block;
+    background: #00a8cc;
+    color: white;
+    text-decoration: none;
+    padding: 12px 22px;
+    margin: 8px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+#social a:hover {
+    background: #141e30;
+    transform: translateY(-3px);
+}
+
+
+#topBtn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #00a8cc;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+}
+
+#topBtn:hover {
+    background: #007f9e;
+}
+
+
+.footer {
+    background: #141e30;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 40px;
+    border-radius: 12px;
+}
+
+.footer p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+}
+
+.hero h2 {
+    color: #00d4ff;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #00a8cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.hero-btn {
+    transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #ffffff;
+    color: #141e30;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive Design */
+
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero {
+        padding: 50px 15px;
+        margin: 10px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero h2 {
+        font-size: 20px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+        /* General Styling */
+
+        body {
+            background-color: #f0f4f8;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            line-height: 1.6;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        h1 {
+            color: #123456;
+            text-align: center;
+        }
+
+        h2 {
+            color: #0077b6;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        /* Navigation */
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            background-color: #123456;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Buttons */
+
+        button {
+            background-color: #123456;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0077b6;
+            transform: scale(1.05);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Images */
+
+        img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Contact Form */
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        /* Dark Mode */
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode h1,
+        .dark-mode h2,
+        .dark-mode h3 {
+            color: #4db8ff;
+        }
+
+        .dark-mode a {
+            color: #bb86fc;
+        }
+
+        .dark-mode nav a {
+            color: white;
+        }
+
+        .dark-mode input,
+        .dark-mode textarea {
+            background-color: #252525;
+            color: white;
+            border-color: #555;
+        }
+
+        /* Mobile Design */
+
+        @media (max-width: 600px) {
+
+            body {
+                margin: 15px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+        }
+
+#skills {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill p {
+    font-weight: bold;
+}
+
+.skill-bar {
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    border-radius: 10px;
+    animation: fillBar 1.5s ease forwards;
+}
+
+.html {
+    width: 80%;
+    background: #e44d26;
+}
+
+.css {
+    width: 60%;
+    background: #264de4;
+}
+
+.javascript {
+    width: 30%;
+    background: #f0db4f;
+}
+
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+}
+
+#projects {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.project-card {
+    background: white;
+    color: #333;
+    padding: 22px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card span {
+    color: #00a8cc;
+    font-weight: bold;
+}
+
+
+
+    </style>
+
+    <!-- EmailJS Library -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        (function() {
+            emailjs.init({
+                publicKey: "_BriKSs1mb-2VKgJo"
+            });
+        })();
+    </script>
+
+</head>
+
+<body>
+
+<div id="loader">
+    <div class="spinner"></div>
+    <p>Loading my website...</p>
+</div>
+
+
+    <!-- Navigation -->
+
+<header class="hero">
+    <h1>Hi, I'm Veer Narware 👋</h1>
+    <h2>Web Developer & Content Creator</h2>
+    <p>
+        I'm learning web development and building
+        creative digital experiences.
+    </p>
+    <a href="#contact" class="hero-btn">Contact Me</a>
+</header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#contact">Contact</a>
+
+<
+
+    </nav>
+
+    <h1>Welcome to My First Website</h1>
+
+    <!-- About Me -->
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>My name is Veer Narware.</p>
+
+        <p>I am learning web development and this is my first website.</p>
+
+        <h2>My Goals</h2>
+
+        <p>I want to become a skilled web developer.</p>
+
+        <h2>My Learning Goals</h2>
+
+        <ol>
+            <li>Learn HTML</li>
+            <li>Learn CSS</li>
+            <li>Learn JavaScript</li>
+            <li>Become a Freelancer</li>
+        </ol>
+
+    </section>
+
+    <!-- Skills -->
+
+    <section id="skills">
+
+        <h2>My Current Skills</h2>
+
+        <ul>
+            <li>Basic HTML structure</li>
+            <li>Creating Headings</li>
+            <li>Writing paragraphs</li>
+            <li>Creating lists and links</li>
+        </ul>
+
+    </section>
+
+<section id="skills">
+    <h2>My Skills</h2>
+
+    <div class="skill">
+        <p>HTML</p>
+        <div class="skill-bar">
+            <div class="skill-progress html"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>CSS</p>
+        <div class="skill-bar">
+            <div class="skill-progress css"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <p>JavaScript</p>
+        <div class="skill-bar">
+            <div class="skill-progress javascript"></div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="project-card">
+        <h3>Personal Portfolio Website</h3>
+        <p>My first website built using HTML, CSS and JavaScript.</p>
+        <span>HTML | CSS | JavaScript</span>
+    </div>
+
+    <div class="project-card">
+        <h3>Coming Soon</h3>
+        <p>More exciting projects are on the way!</p>
+    </div>
+</section>
+
+    <!-- Hobbies -->
+
+    <section id="hobbies">
+
+        <h2>My Hobbies</h2>
+
+        <ul>
+            <li>GYM</li>
+            <li>Football</li>
+            <li>Video Editing</li>
+            <li>Learning Coding</li>
+        </ul>
+
+    </section>
+
+    <!-- Social Media -->
+
+<section id="social">          
+    <h2>Connect With Me</h2>
+    <p>Follow my journey and latest work.</p>
+
+    <a href="https://www.instagram.com/vn_ji_official/"
+       target="_blank">
+        Instagram
+    </a>
+
+    <a href="https://youtube.com/@veernarware3766?si=7oMV0iTEwKzsp09e"
+       target="_blank">
+        YouTube
+    </a>
+</section>
+
+    <!-- JavaScript Practice -->
+
+    <h2>My JavaScript Practice</h2>
+
+    <p id="demo">Welcome to my website!</p>
+
+    <button type="button" onclick="changeText()">Click Me</button>
+
+    <br><br>
+
+    <button type="button" onclick="changeColor()">
+        Change Background Color
+    </button>
+
+    <br><br>
+
+    <button type="button" onclick="toggleDarkMode()">
+        Toggle Dark Mode
+    </button>
+
+    <!-- Profile Photo -->
+
+    <h2>My Profile Photo</h2>
+
+    <img src="images/myphoto.jpg" alt="My Profile Photo">
+
+    <!-- Contact Form -->
+
+    <section id="contact">
+
+        <h2>Contact Me</h2>
+
+        <form id="contactForm">
+
+            <label for="name">Your Name:</label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <br><br>
+
+            <label for="email">Your Email:</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <br><br>
+
+            <label for="message">Your Message:</label>
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message"
+                rows="5"
+                maxlength="250"
+                required
+            ></textarea>
+
+            <p id="charCount">0/250 characters</p>
+
+            <button type="submit" id="sendButton">
+                Send Message
+            </button>
+
+            <p id="result" aria-live="polite"></p>
+
+        </form>
+
+    </section>
+
+    <!-- JavaScript -->
+
+    <script>
+
+window.addEventListener("load", function() {
+    document.getElementById("loader").style.display = "none";
+});
+
+
+window.onscroll = function() {
+    const btn = document.getElementById("topBtn");
+
+    if (document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+        // Change Text
+
+        function changeText() {
+
+            document.getElementById("demo").textContent =
+                "Hello Veer! I am learning JavaScript!";
+
+        }
+
+
+        // Change Background Color
+
+        function changeColor() {
+
+            document.body.style.backgroundColor = "lightblue";
+
+        }
+
+
+        // Dark Mode
+
+        function toggleDarkMode() {
+
+            document.body.classList.toggle("dark-mode");
+
+            localStorage.setItem(
+                "darkMode",
+                document.body.classList.contains("dark-mode")
+            );
+
+        }
+
+
+        // Remember Dark Mode After Refresh
+
+        if (localStorage.getItem("darkMode") === "true") {
+
+            document.body.classList.add("dark-mode");
+
+        }
+
+
+        // Contact Form Elements
+
+        const form = document.getElementById("contactForm");
+
+        const message = document.getElementById("message");
+
+        const counter = document.getElementById("charCount");
+
+        const result = document.getElementById("result");
+
+        const sendButton = document.getElementById("sendButton");
+
+
+        // Character Counter
+
+        message.addEventListener("input", function() {
+
+            const count = message.value.length;
+
+            counter.textContent = count + "/250 characters";
+
+            counter.style.color =
+                count >= 200 ? "red" : "green";
+
+        });
+
+
+        // EmailJS Contact Form Submission
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            if (!message.value.trim()) {
+
+                result.textContent = "Please enter your message!";
+
+                result.style.color = "red";
+
+                return;
+
+            }
+
+            result.textContent = "Sending message...";
+
+            result.style.color = "blue";
+
+            sendButton.disabled = true;
+
+            emailjs.sendForm(
+                "service_35xhyxs",
+                "template_sk0udll",
+                form
+            )
+
+            .then(function() {
+
+                result.textContent =
+                    "Message sent successfully!";
+
+                result.style.color = "green";
+
+                form.reset();
+
+                counter.textContent = "0/250 characters";
+
+                counter.style.color = "green";
+
+            })
+
+            .catch(function(error) {
+
+                result.textContent =
+                    "Failed to send. Please try again.";
+
+                result.style.color = "red";
+
+                console.error("EmailJS Error:", error);
+
+            })
+
+            .finally(function() {
+
+                sendButton.disabled = false;
+
+            });
+
+        });
+
+    </script>
+
+<footer class="footer">
+    <h3>Veer Narware</h3>
+    <p>Learning. Creating. Growing.</p>
+    <p>© 2026 Veer Narware. All rights reserved.</p>
+</footer>
+
+<button id="topBtn" onclick="scrollToTop()">↑</button>
+
+</body>
+</html>
+
