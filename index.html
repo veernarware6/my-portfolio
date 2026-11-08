@@ -15,6 +15,39 @@
 
     <style>
 
+/* Global Box Sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* About Me Section */
+#about {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 35px 25px;
+    text-align: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+#about h2 {
+    color: #007f9e;
+    margin-bottom: 25px;
+}
+
+#about h3 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+#about p {
+    line-height: 1.8;
+    margin: 12px 0;
+}
+
 #loader {
     position: fixed;
     inset: 0;
@@ -33,7 +66,7 @@
     border: 5px solid #ffffff;
     border-top: 5px solid #00a8cc;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -114,6 +147,7 @@ html {
 
 .hero h1 {
     font-size: 42px;
+    color: #ffffff;
 }
 
 .hero h2 {
@@ -146,43 +180,6 @@ html {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Mobile Responsive Design */
-
-@media (max-width: 600px) {
-    body {
-        font-size: 15px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .hero {
-        padding: 50px 15px;
-        margin: 10px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero h2 {
-        font-size: 20px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-}
-
 
         /* General Styling */
 
@@ -190,7 +187,7 @@ html {
             background-color: #f0f4f8;
             color: #333;
             font-family: Arial, sans-serif;
-            margin: 30px;
+            margin: 0;
             line-height: 1.6;
             transition: background-color 0.4s, color 0.4s;
         }
@@ -224,12 +221,16 @@ html {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #ffd700;
+            color: #00d4ff;
+            background-color: rgba(255,255,255, 0.1);
         }
+
 
         /* Buttons */
 
@@ -241,7 +242,7 @@ html {
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         button:hover {
@@ -257,11 +258,10 @@ html {
         /* Images */
 
         img {
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-        }
+    max-width: 100%;
+    height: auto;
+}
+
 
         /* Contact Form */
 
@@ -306,14 +306,18 @@ html {
             color: white;
             border-color: #555;
         }
+        /* Dark Mode Improvements */
+
+.dark-mode #about,
+.dark-mode .project-card {
+    background-color: #1e1e1e;
+    color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
 
         /* Mobile Design */
 
         @media (max-width: 600px) {
-
-            body {
-                margin: 15px;
-            }
 
             nav {
                 gap: 15px;
@@ -386,11 +390,12 @@ html {
     max-width: 500px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .project-card span {
@@ -400,16 +405,19 @@ html {
 
 
 .profile-photo {
-    width: 300px;
-    height: 300px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid #00a8cc;
+    border: 4px solid #00a8cc;
     display: block;
-    margin: 30px auto;
+    margin: 20px auto;
+    box-shadow: 0 5px 20px rgba(0,168,204,0.25);
+    transition: transform 0.3s; 
 }
-
-
+.profile-photo:hover {
+    transform: scale(1.05);
+}
     </style>
 
     <!-- EmailJS Library -->
@@ -453,39 +461,51 @@ html {
         <a href="#hobbies">Hobbies</a>
         <a href="#contact">Contact</a>
 
-<
 
     </nav>
 
-    <h1>Welcome to My First Website</h1>
+    <h2>Welcome to My Website</h2>
 
     <!-- About Me -->
 
     <section id="about">
 
+        <h2>About Me</h2>
 
 <img
-    src="myphoto.jpg"
-    alt="Veer Narware profile photo"
+    src="images/myphoto.jpg"
+    alt="My profile photo"
     class="profile-photo">
 
-        <h2>About Me</h2>
-        </section>
+        <h3>Hi,I'm Veer Narware</h3>
 
-        <p>My name is Veer Narware.</p>
+        <p>
+            I'm an aspiring Web Developer and Content Creator
+            passionate about building modern, attractive, and 
+            user-friendly websites.
+        </p>
 
-        <p>I am learning web development and this is my first website.</p>
+        <p>
+            I'm currently learning HTML,CSS and JavaScript
+            and working on projects to improve my skills.
+        </p>
+        <p> 
+            My goal is to help businesses grow online by
+            creating professional websites.
+        </p>
 
-        <h2>My Goals</h2>
+        <h3>My Goals</h3>
 
-        <p>I want to become a skilled web developer.</p>
+        <p>I want to become a skilled web developer and 
+            freelancer.</p>
 
-        <h2>My Learning Goals</h2>
+        <h3>My Learning Goals</h3>
 
         <ol>
             <li>Learn HTML</li>
             <li>Learn CSS</li>
             <li>Learn JavaScript</li>
+            <li>Build professional websites</li>
             <li>Become a Freelancer</li>
         </ol>
 
@@ -505,31 +525,9 @@ html {
         </ul>
 
     </section>
+  
 
-<section id="skills">
-    <h2>My Skills</h2>
-
-    <div class="skill">
-        <p>HTML</p>
-        <div class="skill-bar">
-            <div class="skill-progress html"></div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <p>CSS</p>
-        <div class="skill-bar">
-            <div class="skill-progress css"></div>
-        </div>
-    </div>
-
-    <div class="skill">
-        <p>JavaScript</p>
-        <div class="skill-bar">
-            <div class="skill-progress javascript"></div>
-        </div>
-    </div>
-</section>
+   
 
 <section id="projects">
     <h2>My Projects</h2>
@@ -568,12 +566,14 @@ html {
     <p>Follow my journey and latest work.</p>
 
     <a href="https://www.instagram.com/vn_ji_official/"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
         Instagram
     </a>
 
     <a href="https://youtube.com/@veernarware3766?si=7oMV0iTEwKzsp09e"
-       target="_blank">
+       target="_blank"
+       rel="noopener noreferrer">
         YouTube
     </a>
 </section>
@@ -598,15 +598,7 @@ html {
         Toggle Dark Mode
     </button>
 
-    <!-- Profile Photo -->
-
-    <h2>My Profile Photo</h2>
-
-    <img src="myphoto.jpg"
-        alt="My Profile Photo">
-    
-
-    <!-- Contact Form -->
+  
 
     <section id="contact">
 
@@ -645,6 +637,7 @@ html {
                 name="message"
                 placeholder="Write your message"
                 rows="5"
+                minlength="10"
                 maxlength="250"
                 required
             ></textarea>
@@ -826,7 +819,14 @@ function scrollToTop() {
     <p>© 2026 Veer Narware. All rights reserved.</p>
 </footer>
 
-<button id="topBtn" onclick="scrollToTop()">↑</button>
+<button
+    type="button"
+    id="topBtn"
+    onclick="scrollToTop()"
+    aria-label="Scroll to top"
+>
+    ↑
+</button>
 
 </body>
 </html>
